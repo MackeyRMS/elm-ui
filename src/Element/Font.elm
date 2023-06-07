@@ -108,7 +108,7 @@ family families =
     Internal.StyleClass
         Flag.fontFamily
         (Internal.FontFamily
-            (List.foldl Internal.renderFontClassName "ff-" families)
+            (List.foldl Internal.renderFontClassName "elmui-ff-" families)
             families
         )
 
@@ -435,7 +435,7 @@ variantList vars =
             String.join ", " features
     in
     Internal.StyleClass Flag.fontVariant <|
-        Internal.Style ("v-" ++ name)
+        Internal.Style ("elmui-v-" ++ name)
             [ Internal.Property "font-feature-settings" featureString
             , Internal.Property "font-variant"
                 (if hasSmallCaps then

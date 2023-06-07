@@ -698,7 +698,7 @@ transformClass transform =
 
         Moved ( x, y, z ) ->
             Just <|
-                "mv-"
+                "elmui-mv-"
                     ++ floatClass x
                     ++ "-"
                     ++ floatClass y
@@ -707,7 +707,7 @@ transformClass transform =
 
         FullTransform ( tx, ty, tz ) ( sx, sy, sz ) ( ox, oy, oz ) angle ->
             Just <|
-                "tfrm-"
+                "elmui-tfrm-"
                     ++ floatClass tx
                     ++ "-"
                     ++ floatClass ty
@@ -2694,7 +2694,7 @@ renderStyleRule options rule maybePseudo =
         FontSize i ->
             renderStyle options
                 maybePseudo
-                (".font-size-" ++ String.fromInt i)
+                (".elmui-font-size-" ++ String.fromInt i)
                 [ Property "font-size" (String.fromInt i ++ "px")
                 ]
 
@@ -3120,7 +3120,8 @@ formatTextShadow shadow =
 
 textShadowClass shadow =
     String.concat
-        [ "txt"
+        [ "elmui-"
+        , "txt"
         , floatClass (Tuple.first shadow.offset) ++ "px"
         , floatClass (Tuple.second shadow.offset) ++ "px"
         , floatClass shadow.blur ++ "px"
@@ -3146,7 +3147,8 @@ formatBoxShadow shadow =
 
 boxShadowClass shadow =
     String.concat <|
-        [ if shadow.inset then
+        [ "elmui-"
+        , if shadow.inset then
             "box-inset"
 
           else
@@ -3175,7 +3177,8 @@ formatColor (Rgba red green blue alpha) =
 
 formatColorClass : Color -> String
 formatColorClass (Rgba red green blue alpha) =
-    floatClass red
+    "elmui-"
+        ++ floatClass red
         ++ "-"
         ++ floatClass green
         ++ "-"
@@ -3185,11 +3188,11 @@ formatColorClass (Rgba red green blue alpha) =
 
 
 spacingName x y =
-    "spacing-" ++ String.fromInt x ++ "-" ++ String.fromInt y
+    "elmui-spacing-" ++ String.fromInt x ++ "-" ++ String.fromInt y
 
 
 paddingName top right bottom left =
-    "pad-"
+    "elmui-pad-"
         ++ String.fromInt top
         ++ "-"
         ++ String.fromInt right
@@ -3226,7 +3229,7 @@ getStyleName style =
             name
 
         FontSize i ->
-            "font-size-" ++ String.fromInt i
+            "elmui-font-size-" ++ String.fromInt i
 
         Single class _ _ ->
             class
@@ -3244,7 +3247,7 @@ getStyleName style =
             cls
 
         GridTemplateStyle template ->
-            "grid-rows-"
+            "elmui-grid-rows-"
                 ++ String.join "-" (List.map lengthClassName template.rows)
                 ++ "-cols-"
                 ++ String.join "-" (List.map lengthClassName template.columns)
@@ -3254,7 +3257,7 @@ getStyleName style =
                 ++ lengthClassName (Tuple.second template.spacing)
 
         GridPosition pos ->
-            "gp grid-pos-"
+            "elmui-gp elmui-grid-pos-"
                 ++ String.fromInt pos.row
                 ++ "-"
                 ++ String.fromInt pos.col

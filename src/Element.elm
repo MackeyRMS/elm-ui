@@ -1362,7 +1362,12 @@ padding x =
         f =
             toFloat x
     in
-    Internal.StyleClass Flag.padding (Internal.PaddingStyle ("p-" ++ String.fromInt x) f f f f)
+    Internal.StyleClass Flag.padding (Internal.PaddingStyle (paddingPrefix ++ String.fromInt x) f f f f)
+
+
+paddingPrefix : String
+paddingPrefix =
+    "elmui-p-"
 
 
 {-| Set horizontal and vertical padding.
@@ -1374,7 +1379,7 @@ paddingXY x y =
             f =
                 toFloat x
         in
-        Internal.StyleClass Flag.padding (Internal.PaddingStyle ("p-" ++ String.fromInt x) f f f f)
+        Internal.StyleClass Flag.padding (Internal.PaddingStyle (paddingPrefix ++ String.fromInt x) f f f f)
 
     else
         let
@@ -1386,7 +1391,7 @@ paddingXY x y =
         in
         Internal.StyleClass Flag.padding
             (Internal.PaddingStyle
-                ("p-" ++ String.fromInt x ++ "-" ++ String.fromInt y)
+                ("elmui-p-" ++ String.fromInt x ++ "-" ++ String.fromInt y)
                 yFloat
                 xFloat
                 yFloat
@@ -1416,7 +1421,7 @@ paddingEach { top, right, bottom, left } =
                 toFloat top
         in
         Internal.StyleClass Flag.padding
-            (Internal.PaddingStyle ("p-" ++ String.fromInt top)
+            (Internal.PaddingStyle (paddingPrefix ++ String.fromInt top)
                 topFloat
                 topFloat
                 topFloat

@@ -56,12 +56,17 @@ width v =
     Internal.StyleClass
         Flag.borderWidth
         (Internal.BorderWidth
-            ("b-" ++ String.fromInt v)
+            (borderWidthPrefix ++ String.fromInt v)
             v
             v
             v
             v
         )
+
+
+borderWidthPrefix : String
+borderWidthPrefix =
+    "elmui-b-"
 
 
 {-| Set horizontal and vertical borders.
@@ -71,7 +76,7 @@ widthXY x y =
     Internal.StyleClass
         Flag.borderWidth
         (Internal.BorderWidth
-            ("b-"
+            (borderWidthPrefix
                 ++ String.fromInt x
                 ++ "-"
                 ++ String.fromInt y
@@ -102,7 +107,7 @@ widthEach { bottom, top, left, right } =
     else
         Internal.StyleClass Flag.borderWidth
             (Internal.BorderWidth
-                ("b-"
+                (borderWidthPrefix
                     ++ String.fromInt top
                     ++ "-"
                     ++ String.fromInt right
@@ -151,7 +156,7 @@ rounded radius =
     Internal.StyleClass
         Flag.borderRound
         (Internal.Single
-            ("br-" ++ String.fromInt radius)
+            ("elmui-br-" ++ String.fromInt radius)
             "border-radius"
             (String.fromInt radius ++ "px")
         )
@@ -168,7 +173,7 @@ roundEach :
 roundEach { topLeft, topRight, bottomLeft, bottomRight } =
     Internal.StyleClass Flag.borderRound
         (Internal.Single
-            ("br-"
+            ("elmui-br-"
                 ++ String.fromInt topLeft
                 ++ "-"
                 ++ String.fromInt topRight
