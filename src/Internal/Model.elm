@@ -3202,7 +3202,7 @@ paddingName top right bottom left =
 
 
 paddingNameFloat top right bottom left =
-    "pad-"
+    "elmui-pad-"
         ++ floatClass top
         ++ "-"
         ++ floatClass right
