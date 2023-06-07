@@ -3177,8 +3177,7 @@ formatColor (Rgba red green blue alpha) =
 
 formatColorClass : Color -> String
 formatColorClass (Rgba red green blue alpha) =
-    "elmui-"
-        ++ floatClass red
+    floatClass red
         ++ "-"
         ++ floatClass green
         ++ "-"

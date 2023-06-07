@@ -25,7 +25,7 @@ import VirtualDom
 {-| -}
 color : Color -> Attr decorative msg
 color clr =
-    Internal.StyleClass Flag.bgColor (Internal.Colored ("bg-" ++ Internal.formatColorClass clr) "background-color" clr)
+    Internal.StyleClass Flag.bgColor (Internal.Colored ("elmui-bg-" ++ Internal.formatColorClass clr) "background-color" clr)
 
 
 {-| Resize the image to fit the containing element while maintaining proportions and cropping the overflow.
@@ -118,11 +118,11 @@ gradient { angle, steps } =
 
         clr :: [] ->
             Internal.StyleClass Flag.bgColor
-                (Internal.Colored ("bg-" ++ Internal.formatColorClass clr) "background-color" clr)
+                (Internal.Colored ("elmui-bg-" ++ Internal.formatColorClass clr) "background-color" clr)
 
         _ ->
             Internal.StyleClass Flag.bgGradient <|
-                Internal.Single ("bg-grad-" ++ (String.join "-" <| Internal.floatClass angle :: List.map Internal.formatColorClass steps))
+                Internal.Single ("elmui-bg-grad-" ++ (String.join "-" <| Internal.floatClass angle :: List.map Internal.formatColorClass steps))
                     "background-image"
                     ("linear-gradient(" ++ (String.join ", " <| (String.fromFloat angle ++ "rad") :: List.map Internal.formatColor steps) ++ ")")
 
