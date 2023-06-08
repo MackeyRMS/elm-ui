@@ -615,25 +615,25 @@ commonValues =
     List.concat
         [ List.map
             (\x ->
-                Class (".border-" ++ String.fromInt x) [ Prop "border-width" (String.fromInt x ++ "px") ]
+                Class (".elmui-border-" ++ String.fromInt x) [ Prop "border-width" (String.fromInt x ++ "px") ]
             )
             (List.range 0 6)
         , List.map
             (\i ->
-                Class (".font-size-" ++ String.fromInt i) [ Prop "font-size" (String.fromInt i ++ "px") ]
+                Class (".elmui-font-size-" ++ String.fromInt i) [ Prop "font-size" (String.fromInt i ++ "px") ]
             )
             (List.range 8 32)
         , List.map
             (\i ->
-                Class (".p-" ++ String.fromInt i) [ Prop "padding" (String.fromInt i ++ "px") ]
+                Class (".elmui-p-" ++ String.fromInt i) [ Prop "padding" (String.fromInt i ++ "px") ]
             )
             (List.range 0 24)
 
         -- Common Font Variants
-        , [ Class ".v-smcp"
+        , [ Class ".elmui-v-smcp"
                 [ Prop "font-variant" "small-caps"
                 ]
-          , Class ".v-smcp-off"
+          , Class ".elmui-v-smcp-off"
                 [ Prop "font-variant" "normal"
                 ]
           ]
@@ -651,10 +651,10 @@ commonValues =
 
 
 fontVariant var =
-    [ Class (".v-" ++ var)
+    [ Class (".elmui-v-" ++ var)
         [ Prop "font-feature-settings" ("\"" ++ var ++ "\"")
         ]
-    , Class (".v-" ++ var ++ "-off")
+    , Class (".elmui-v-" ++ var ++ "-off")
         [ Prop "font-feature-settings" ("\"" ++ var ++ "\" 0")
         ]
     ]
