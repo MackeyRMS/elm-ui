@@ -132,7 +132,7 @@ gradient { angle, steps } =
 -- gradientWith : { direction : Direction, steps : List Step } -> Attribute msg
 -- gradientWith { direction, steps } =
 --     StyleClass <|
---         Single ("bg-gradient-" ++ (String.join "-" <| renderDirectionClass direction :: List.map renderStepClass steps))
+--         Single ("elmui-bg-gradient-" ++ (String.join "-" <| renderDirectionClass direction :: List.map renderStepClass steps))
 --             "background"
 --             ("linear-gradient(" ++ (String.join ", " <| renderDirection direction :: List.map renderStep steps) ++ ")")
 -- {-| -}

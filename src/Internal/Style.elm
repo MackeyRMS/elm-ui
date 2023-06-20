@@ -594,17 +594,17 @@ input[type=range][orient=vertical]{
 
 explainer =
     """
-.explain {
+.elmui-explain {
     border: 6px solid rgb(174, 121, 15) !important;
 }
-.explain > .""" ++ classes.any ++ """ {
+.elmui-explain > .""" ++ classes.any ++ """ {
     border: 4px dashed rgb(0, 151, 167) !important;
 }
 
-.ctr {
+.elmui-ctr {
     border: none !important;
 }
-.explain > .ctr > .""" ++ classes.any ++ """ {
+.elmui-explain > .elmui-ctr > .""" ++ classes.any ++ """ {
     border: 4px dashed rgb(0, 151, 167) !important;
 }
 

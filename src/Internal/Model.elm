@@ -975,11 +975,11 @@ gatherAttrRecursive classes node has transform styles attrs children elementAttr
                     else
                         case width of
                             Px px ->
-                                gatherAttrRecursive ((Internal.Style.classes.widthExact ++ " width-px-" ++ String.fromInt px) ++ " " ++ classes)
+                                gatherAttrRecursive ((Internal.Style.classes.widthExact ++ " elmui-width-px-" ++ String.fromInt px) ++ " " ++ classes)
                                     node
                                     (Flag.add Flag.width has)
                                     transform
-                                    (Single ("width-px-" ++ String.fromInt px) "width" (String.fromInt px ++ "px") :: styles)
+                                    (Single ("elmui-width-px-" ++ String.fromInt px) "width" (String.fromInt px ++ "px") :: styles)
                                     attrs
                                     children
                                     remaining
@@ -1356,7 +1356,7 @@ renderWidth w =
         Px px ->
             ( Flag.none
             , Internal.Style.classes.widthExact ++ " elmui-width-px-" ++ String.fromInt px
-            , [ Single ("width-px-" ++ String.fromInt px) "width" (String.fromInt px ++ "px") ]
+            , [ Single ("elmui-width-px-" ++ String.fromInt px) "width" (String.fromInt px ++ "px") ]
             )
 
         Content ->
@@ -2175,8 +2175,8 @@ rootStyle =
             , SansSerif
             ]
     in
-    [ StyleClass Flag.bgColor (Colored ("bg-" ++ formatColorClass (Rgba 1 1 1 0)) "background-color" (Rgba 1 1 1 0))
-    , StyleClass Flag.fontColor (Colored ("fc-" ++ formatColorClass (Rgba 0 0 0 1)) "color" (Rgba 0 0 0 1))
+    [ StyleClass Flag.bgColor (Colored ("elmui-bg-" ++ formatColorClass (Rgba 1 1 1 0)) "background-color" (Rgba 1 1 1 0))
+    , StyleClass Flag.fontColor (Colored ("elmui-fc-" ++ formatColorClass (Rgba 0 0 0 1)) "color" (Rgba 0 0 0 1))
     , StyleClass Flag.fontSize (FontSize 20)
     , StyleClass Flag.fontFamily <|
         FontFamily (List.foldl renderFontClassName "font-" families)
@@ -2247,7 +2247,7 @@ renderFocusStyle focus =
             ]
         )
     , Style
-        ((Internal.Style.dot classes.any ++ ":focus .focusable, ")
+        ((Internal.Style.dot classes.any ++ ":focus .elmui-focusable, ")
             ++ (Internal.Style.dot classes.any ++ ".elmui-focusable:focus, ")
             ++ (".elmui-ui-slide-bar:focus + " ++ Internal.Style.dot classes.any ++ " .elmui-focusable-thumb")
         )

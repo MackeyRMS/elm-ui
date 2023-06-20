@@ -44,7 +44,7 @@ color clr =
     Internal.StyleClass
         Flag.borderColor
         (Internal.Colored
-            ("bc-" ++ Internal.formatColorClass clr)
+            ("elmui-bc-" ++ Internal.formatColorClass clr)
             "border-color"
             clr
         )
