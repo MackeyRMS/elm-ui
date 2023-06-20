@@ -82,7 +82,7 @@ color fontColor =
     Internal.StyleClass
         Flag.fontColor
         (Internal.Colored
-            ("fc-" ++ Internal.formatColorClass fontColor)
+            ("elmui-fc-" ++ Internal.formatColorClass fontColor)
             "color"
             fontColor
         )

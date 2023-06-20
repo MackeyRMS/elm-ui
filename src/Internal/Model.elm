@@ -1051,7 +1051,7 @@ gatherAttrRecursive classes node has transform styles attrs children elementAttr
                                         String.fromInt px ++ "px"
 
                                     name =
-                                        "height-px-" ++ val
+                                        "elmui-height-px-" ++ val
                                 in
                                 gatherAttrRecursive (Internal.Style.classes.heightExact ++ " " ++ name ++ " " ++ classes)
                                     node
@@ -1350,11 +1350,12 @@ nearbyElement location elem =
         ]
 
 
+renderWidth : Length -> ( Flag.Field, String, List Style )
 renderWidth w =
     case w of
         Px px ->
             ( Flag.none
-            , Internal.Style.classes.widthExact ++ " width-px-" ++ String.fromInt px
+            , Internal.Style.classes.widthExact ++ " elmui-width-px-" ++ String.fromInt px
             , [ Single ("width-px-" ++ String.fromInt px) "width" (String.fromInt px ++ "px") ]
             )
 
@@ -1373,7 +1374,7 @@ renderWidth w =
 
             else
                 ( Flag.add Flag.widthFill Flag.none
-                , Internal.Style.classes.widthFillPortion ++ " width-fill-" ++ String.fromInt portion
+                , Internal.Style.classes.widthFillPortion ++ " elmui-width-fill-" ++ String.fromInt portion
                 , [ Single
                         (Internal.Style.classes.any
                             ++ "."
@@ -1389,7 +1390,7 @@ renderWidth w =
         Min minSize len ->
             let
                 cls =
-                    "min-width-"
+                    "elmui-min-width-"
                         ++ String.fromInt minSize
 
                 style =
@@ -1409,7 +1410,7 @@ renderWidth w =
         Max maxSize len ->
             let
                 cls =
-                    "max-width-" ++ String.fromInt maxSize
+                    "elmui-max-width-" ++ String.fromInt maxSize
 
                 style =
                     Single cls
@@ -1425,6 +1426,7 @@ renderWidth w =
             )
 
 
+renderHeight : Length -> ( Flag.Field, String, List Style )
 renderHeight h =
     case h of
         Px px ->
@@ -1433,7 +1435,7 @@ renderHeight h =
                     String.fromInt px
 
                 name =
-                    "height-px-" ++ val
+                    "elmui-height-px-" ++ val
             in
             ( Flag.none
             , Internal.Style.classes.heightExact ++ " " ++ name
@@ -1455,7 +1457,7 @@ renderHeight h =
 
             else
                 ( Flag.add Flag.heightFill Flag.none
-                , Internal.Style.classes.heightFillPortion ++ " height-fill-" ++ String.fromInt portion
+                , Internal.Style.classes.heightFillPortion ++ " elmui-height-fill-" ++ String.fromInt portion
                 , [ Single
                         (Internal.Style.classes.any
                             ++ "."
@@ -1471,7 +1473,7 @@ renderHeight h =
         Min minSize len ->
             let
                 cls =
-                    "min-height-"
+                    "elmui-min-height-"
                         ++ String.fromInt minSize
 
                 style =
@@ -1493,7 +1495,7 @@ renderHeight h =
         Max maxSize len ->
             let
                 cls =
-                    "max-height-" ++ String.fromInt maxSize
+                    "elmui-max-height-" ++ String.fromInt maxSize
 
                 style =
                     Single cls
@@ -2246,8 +2248,8 @@ renderFocusStyle focus =
         )
     , Style
         ((Internal.Style.dot classes.any ++ ":focus .focusable, ")
-            ++ (Internal.Style.dot classes.any ++ ".focusable:focus, ")
-            ++ (".ui-slide-bar:focus + " ++ Internal.Style.dot classes.any ++ " .focusable-thumb")
+            ++ (Internal.Style.dot classes.any ++ ".elmui-focusable:focus, ")
+            ++ (".elmui-ui-slide-bar:focus + " ++ Internal.Style.dot classes.any ++ " .elmui-focusable-thumb")
         )
         (List.filterMap identity
             [ Maybe.map (\color -> Property "border-color" (formatColor color)) focus.borderColor
@@ -2656,7 +2658,7 @@ renderStyle options maybePseudo selector props =
                     , (selector ++ "-fs:focus-within {")
                         ++ renderedProps
                         ++ "\n}"
-                    , (".ui-slide-bar:focus + " ++ Internal.Style.dot classes.any ++ " .focusable-thumb" ++ selector ++ "-fs {")
+                    , (".elmui-ui-slide-bar:focus + " ++ Internal.Style.dot classes.any ++ " .elmui-focusable-thumb" ++ selector ++ "-fs {")
                         ++ renderedProps
                         ++ "\n}"
                     ]
@@ -3001,7 +3003,7 @@ renderStyleRule options rule maybePseudo =
         GridPosition position ->
             let
                 class =
-                    ".grid-pos-"
+                    ".elmui-grid-pos-"
                         ++ String.fromInt position.row
                         ++ "-"
                         ++ String.fromInt position.col

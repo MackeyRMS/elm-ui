@@ -468,11 +468,11 @@ describeText : String -> List Rule -> Rule
 describeText cls props =
     Descriptor cls
         (List.map makeImportant props
-            ++ [ Child ".text"
+            ++ [ Child ".elmui-text"
                     props
-               , Child ".el"
+               , Child ".elmui-el"
                     props
-               , Child ".el > .text"
+               , Child ".elmui-el > .elmui-text"
                     props
                ]
         )
@@ -1078,7 +1078,7 @@ baseSheet =
             -- TODO:: This may be necessary..should it move to classes.heightFIll?
             -- , Child (dot classes.heightFillBetween)
             --     [ Prop "align-self" "stretch"
-            --     , Descriptor ".aligned-vertically"
+            --     , Descriptor ".elmui-aligned-vertically"
             --         [ Prop "height" "100%"
             --         ]
             --     ]
@@ -1314,7 +1314,7 @@ baseSheet =
             ]
         , Descriptor (dot classes.grid)
             [ Prop "display" "-ms-grid"
-            , Child ".gp"
+            , Child ".elmui-gp"
                 [ Child (dot classes.any)
                     [ Prop "width" "100%"
                     ]
@@ -1528,7 +1528,7 @@ baseSheet =
                             , []
                             )
             ]
-        , Descriptor ".hidden"
+        , Descriptor ".elmui-hidden"
             [ Prop "display" "none"
             ]
         , Descriptor (dot classes.textThin)
@@ -1592,7 +1592,7 @@ baseSheet =
         , Descriptor (dot classes.textLeft)
             [ Prop "text-align" "left"
             ]
-        , Descriptor ".modal"
+        , Descriptor ".elmui-modal"
             [ Prop "position" "fixed"
             , Prop "left" "0"
             , Prop "top" "0"
