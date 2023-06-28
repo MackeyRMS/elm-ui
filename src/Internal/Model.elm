@@ -1006,7 +1006,7 @@ gatherAttrRecursive classes node has transform styles attrs children elementAttr
                                         remaining
 
                                 else
-                                    gatherAttrRecursive (classes ++ " " ++ Internal.Style.classes.widthFillPortion ++ " width-fill-" ++ String.fromInt portion)
+                                    gatherAttrRecursive (classes ++ " " ++ Internal.Style.classes.widthFillPortion ++ " elmui-width-fill-" ++ String.fromInt portion)
                                         node
                                         (Flag.add Flag.widthFill (Flag.add Flag.width has))
                                         transform
@@ -1015,7 +1015,7 @@ gatherAttrRecursive classes node has transform styles attrs children elementAttr
                                                 ++ "."
                                                 ++ Internal.Style.classes.row
                                                 ++ " > "
-                                                ++ (Internal.Style.dot <| "width-fill-" ++ String.fromInt portion)
+                                                ++ (Internal.Style.dot <| "elmui-width-fill-" ++ String.fromInt portion)
                                             )
                                             "flex-grow"
                                             (String.fromInt (portion * 100000))
@@ -1084,7 +1084,7 @@ gatherAttrRecursive classes node has transform styles attrs children elementAttr
                                         remaining
 
                                 else
-                                    gatherAttrRecursive (classes ++ " " ++ (Internal.Style.classes.heightFillPortion ++ " height-fill-" ++ String.fromInt portion))
+                                    gatherAttrRecursive (classes ++ " " ++ (Internal.Style.classes.heightFillPortion ++ " elmui-height-fill-" ++ String.fromInt portion))
                                         node
                                         (Flag.add Flag.heightFill (Flag.add Flag.height has))
                                         transform
@@ -1093,7 +1093,7 @@ gatherAttrRecursive classes node has transform styles attrs children elementAttr
                                                 ++ "."
                                                 ++ Internal.Style.classes.column
                                                 ++ " > "
-                                                ++ (Internal.Style.dot <| "height-fill-" ++ String.fromInt portion)
+                                                ++ (Internal.Style.dot <| "elmui-height-fill-" ++ String.fromInt portion)
                                             )
                                             "flex-grow"
                                             (String.fromInt (portion * 100000))
@@ -1380,7 +1380,7 @@ renderWidth w =
                             ++ "."
                             ++ Internal.Style.classes.row
                             ++ " > "
-                            ++ (Internal.Style.dot <| "width-fill-" ++ String.fromInt portion)
+                            ++ (Internal.Style.dot <| "elmui-width-fill-" ++ String.fromInt portion)
                         )
                         "flex-grow"
                         (String.fromInt (portion * 100000))
@@ -1463,7 +1463,7 @@ renderHeight h =
                             ++ "."
                             ++ Internal.Style.classes.column
                             ++ " > "
-                            ++ (Internal.Style.dot <| "height-fill-" ++ String.fromInt portion)
+                            ++ (Internal.Style.dot <| "elmui-height-fill-" ++ String.fromInt portion)
                         )
                         "flex-grow"
                         (String.fromInt (portion * 100000))
