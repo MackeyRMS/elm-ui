@@ -3,7 +3,7 @@
     "name": "MackeyRMS/elm-ui",
     "summary": "fork of elm-ui",
     "license": "BSD-3-Clause",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "exposed-modules": [
         "Element",
         "Element.Input",
