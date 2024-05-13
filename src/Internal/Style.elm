@@ -913,34 +913,7 @@ baseSheet =
                                 ]
         ]
     , Class (dot classes.any)
-        [ Prop "position" "relative"
-        , Prop "border" "none"
-        , Prop "flex-shrink" "0"
-        , Prop "display" "flex"
-        , Prop "flex-direction" "row"
-        , Prop "flex-basis" "auto"
-        , Prop "resize" "none"
-        , Prop "font-feature-settings" "inherit"
-
-        -- , Prop "flex-basis" "0%"
-        , Prop "box-sizing" "border-box"
-        , Prop "margin" "0"
-        , Prop "padding" "0"
-        , Prop "border-width" "0"
-        , Prop "border-style" "solid"
-
-        -- inheritable font properties
-        , Prop "font-size" "inherit"
-        , Prop "color" "inherit"
-        , Prop "font-family" "inherit"
-        , Prop "line-height" "1"
-        , Prop "font-weight" "inherit"
-
-        -- Text decoration is *mandatorily inherited* in the css spec.
-        -- There's no way to change this.  How crazy is that?
-        , Prop "text-decoration" "none"
-        , Prop "font-style" "inherit"
-        , Descriptor (dot classes.wrapped)
+        [ Descriptor (dot classes.wrapped)
             [ Prop "flex-wrap" "wrap"
             ]
         , Descriptor (dot classes.noTextSelection)
