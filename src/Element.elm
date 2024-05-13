@@ -1,5 +1,5 @@
 module Element exposing
-    ( Element, none, text, el
+    ( Element, none, text, el, customEl
     , row, wrappedRow, column
     , paragraph, textColumn
     , Column, table, IndexedColumn, indexedTable
@@ -29,7 +29,7 @@ module Element exposing
 
 # Basic Elements
 
-@docs Element, none, text, el
+@docs Element, none, text, el, customEl
 
 
 # Rows and Columns
@@ -575,6 +575,20 @@ el attrs child =
     Internal.element
         Internal.asEl
         Internal.div
+        (width shrink
+            :: height shrink
+            :: attrs
+        )
+        (Internal.Unkeyed [ child ])
+
+
+{-| `el` that can be renamed for web component shenanigans
+-}
+customEl : String -> List (Attribute msg) -> Element msg -> Element msg
+customEl nodeName attrs child =
+    Internal.element
+        Internal.asEl
+        (Internal.addNodeName nodeName Internal.Generic)
         (width shrink
             :: height shrink
             :: attrs
