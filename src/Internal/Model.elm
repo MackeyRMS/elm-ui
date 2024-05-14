@@ -145,6 +145,7 @@ type LayoutContext
     | AsGrid
     | AsParagraph
     | AsTextColumn
+    | AsWebComponent
 
 
 type Aligned
@@ -1554,6 +1555,9 @@ contextClasses context =
 
         AsTextColumn ->
             pageClass
+
+        AsWebComponent ->
+            ""
 
 
 element : LayoutContext -> NodeName -> List (Attribute aligned msg) -> Children (Element msg) -> Element msg
