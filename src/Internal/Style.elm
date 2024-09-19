@@ -1195,7 +1195,7 @@ baseSheet =
                 -- In columns, 0% will actually be calculated as `auto` for columns
                 -- So, 0px is the one we want.
                 [ Prop "flex-basis" "0px"
-                , Prop "min-height" "min-content"
+                , Prop "min-height" "0px"
                 , Descriptor (dot classes.heightExact)
                     [ Prop "flex-basis" "auto"
                     ]
